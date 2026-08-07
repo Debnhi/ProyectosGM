@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto 1 | Juntas ETAD</title>
+  <style>
+    :root {
+      --bg: #0a1020;
+      --bg-soft: #101935;
+      --panel: rgba(20, 31, 58, 0.92);
+      --panel-light: rgba(28, 42, 76, 0.9);
+      --line: rgba(119, 145, 214, 0.20);
+      --line-strong: rgba(119, 145, 214, 0.38);
+      --text: #f5f7ff;
+      --muted: #b8c2de;
+      --primary: #6ea8fe;
+      --primary-strong: #8cbaff;
+      --accent: #8ef0d5;
+      --success: #52d59a;
+      --success-bg: rgba(82, 213, 154, 0.14);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 168, 254, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(142, 240, 213, 0.08), transparent 24%),
+        linear-gradient(180deg, #09101f 0%, #0a1020 100%);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .subpage-hero {
+      padding: 24px 0 40px;
+    }
+
+    .subpage-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(12, 19, 36, 0.72);
+      border: 1px solid rgba(119, 145, 214, 0.12);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 14px;
+      z-index: 30;
+    }
+
+    .back-link {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(110, 168, 254, 0.10);
+      border: 1px solid rgba(110, 168, 254, 0.18);
+      color: #dbe7ff;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .subpage-copy {
+      margin-top: 30px;
+      padding: 40px;
+      background: linear-gradient(180deg, rgba(20, 31, 58, 0.92), rgba(16, 25, 53, 0.96));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .subpage-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.7rem, 6vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .subpage-copy p {
+      margin: 0;
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.85;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .hero-meta-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(119, 145, 214, 0.14);
+    }
+
+    .hero-meta-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-meta-card strong {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .section {
+      padding: 28px 0 34px;
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    .content-panel,
+    .feature-card,
+    .project-figure,
+    .tech-card,
+    .image-placeholder {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .content-panel {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+    }
+
+    .content-panel p,
+    .feature-card p,
+    .project-figure figcaption,
+    .styled-list li,
+    .info-list div {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+    }
+
+    .info-list div {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(119, 145, 214, 0.12);
+    }
+
+    .objective-highlight {
+      border-left: 4px solid var(--primary);
+      padding-left: 18px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .feature-card:hover,
+    .project-figure:hover,
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line-strong);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .gallery-grid.project-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-figure {
+      margin: 0;
+      padding: 18px;
+      border-radius: 22px;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      min-height: 260px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      border: 1.5px dashed rgba(140, 186, 255, 0.28);
+      background:
+        linear-gradient(135deg, rgba(110, 168, 254, 0.08), rgba(142, 240, 213, 0.04));
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .image-placeholder small {
+      display: block;
+      margin-top: 8px;
+      font-weight: 400;
+      color: #9fb0d8;
+    }
+
+    .project-figure figcaption {
+      margin-top: 14px;
+      font-size: 0.97rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .tech-card {
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .tech-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    .styled-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .styled-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      padding: 18px 0 40px;
+    }
+
+    .footer p {
+      text-align: center;
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-meta,
+      .feature-grid,
+      .gallery-grid.project-gallery,
+      .tech-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .subpage-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .subpage-copy {
+        padding: 24px;
+      }
+
+      .hero-meta,
+      .feature-grid,
+      .gallery-grid.project-gallery,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-panel,
+      .feature-card,
+      .project-figure,
+      .tech-card {
+        padding: 20px;
+      }
+
+      .subpage-copy h1 {
+        font-size: 2.4rem;
+      }
+
+      .image-placeholder {
+        min-height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="subpage-hero">
+    <div class="container subpage-topbar">
+      <a href="../index.html" class="back-link">← Volver al inicio</a>
+      <span class="mini-label">Proyecto 1</span>
+    </div>
+
+    <div class="container subpage-copy reveal">
+      <p class="eyebrow">Power Apps · SharePoint · Power BI · Power Automate</p>
+      <h1>Juntas ETAD</h1>
+      <p>
+        Solución desarrollada para digitalizar el registro de asistencia a las juntas semanales de equipos,
+        permitir la consulta de minutas por semana y centralizar el seguimiento de información para su análisis.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-card">
+          <span>Estado</span>
+          <strong>Finalizado</strong>
+        </div>
+        <div class="hero-meta-card">
+          <span>Rol</span>
+          <strong>Desarrollo y documentación</strong>
+        </div>
+        <div class="hero-meta-card">
+          <span>Tipo</span>
+          <strong>Automatización de procesos</strong>
+        </div>
+        <div class="hero-meta-card">
+          <span>Enfoque</span>
+          <strong>Registro, consulta y seguimiento</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Descripción general</p>
+        <h2>¿Qué hace este proyecto?</h2>
+      </div>
+
+      <div class="content-panel two-col">
+        <div>
+          <p>
+            La aplicación fue desarrollada en Power Apps para digitalizar el registro de asistencia a juntas semanales,
+            consultar minutas en PDF o video por semana y capturar información como taller, tripulación, equipo,
+            integrantes asistentes, acuerdos y reconocimientos.
+          </p>
+          <p>
+            La solución se apoya en SharePoint para almacenar registros y documentos, en Power BI para mostrar
+            indicadores y en Power Automate para automatizar el envío de seguimiento semanal.
+          </p>
+        </div>
+
+        <div class="info-list">
+          <div><strong>Estado:</strong> En proceso</div>
+          <div><strong>Rol:</strong> Desarrollo y documentación</div>
+          <div><strong>Tecnologías:</strong> Power Apps, SharePoint, Power BI, Power Automate</div>
+          <div><strong>Tipo:</strong> Automatización y digitalización de procesos</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Objetivo</p>
+        <h2>Propósito del proyecto</h2>
+      </div>
+
+      <div class="content-panel">
+        <p class="objective-highlight">
+          Facilitar el registro, consulta y seguimiento de las juntas semanales de equipos mediante una solución
+          digital centralizada, reduciendo registros manuales, estandarizando la captura de información y dejando
+          los datos listos para su análisis posterior.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Funcionalidades</p>
+        <h2>Lo más importante del sistema</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Consulta de minutas</h3>
+          <p>Permite visualizar minutas o presentaciones semanales en PDF y consultar semanas anteriores.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Registro de juntas</h3>
+          <p>Captura taller, tripulación, equipo, asistencia, acuerdos y reconocimientos.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Validaciones</h3>
+          <p>Evita registros incompletos y duplicados del mismo equipo en la misma semana.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Seguimiento visual</h3>
+          <p>Muestra indicadores y gráficas de asistencia por área o taller mediante Power BI.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Gestión de minutas</h3>
+          <p>Incluye carga de minutas en PDF y video para administradores.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Automatización</h3>
+          <p>Envía seguimiento semanal de equipos registrados y pendientes mediante Power Automate.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Galería del proyecto</p>
+        <h2>Espacios para agregar imágenes</h2>
+      </div>
+
+      <div class="gallery-grid project-gallery">
+        <figure class="project-figure">
+          <div class="image-placeholder">
+            Imagen 1
+            <small>Coloca aquí una captura de la vista de minutas PDF</small>
+          </div>
+          <figcaption>Pantalla para carga y consulta de minutas en PDF.</figcaption>
+        </figure>
+
+        <figure class="project-figure">
+          <div class="image-placeholder">
+            Imagen 2
+            <small>Coloca aquí una captura del módulo de registro</small>
+          </div>
+          <figcaption>Pantalla para registrar asistencia, acuerdos y reconocimientos.</figcaption>
+        </figure>
+
+        <figure class="project-figure">
+          <div class="image-placeholder">
+            Imagen 3
+            <small>Coloca aquí una captura de minutas en video</small>
+          </div>
+          <figcaption>Sección de carga y actualización de minutas en video.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Estructura técnica</p>
+        <h2>Componentes utilizados</h2>
+      </div>
+
+      <div class="tech-grid">
+        <article class="tech-card">
+          <h3>Herramientas</h3>
+          <ul class="styled-list">
+            <li>Power Apps para interfaz y lógica de captura</li>
+            <li>SharePoint para listas, documentos y almacenamiento</li>
+            <li>Power BI para indicadores y seguimiento visual</li>
+            <li>Power Automate para notificaciones semanales</li>
+          </ul>
+        </article>
+
+        <article class="tech-card">
+          <h3>Datos principales</h3>
+          <ul class="styled-list">
+            <li>Lista Registros</li>
+            <li>Lista TRABAJADORES</li>
+            <li>Presentaciones_Semanales_Lista</li>
+            <li>Biblioteca Videos_Minutas</li>
+            <li>Lista SOPORTE GMS</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>Proyecto 1 · Juntas ETAD</p>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
