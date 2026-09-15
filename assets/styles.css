@@ -633,6 +633,11 @@ h3 {
   color: var(--success);
 }
 
+.status.test {
+  background: rgba(255, 196, 106, 0.14);
+  color: #ffc46a;
+}
+
 .project-tab-card h3 {
   font-size: 1.35rem;
   margin-bottom: 12px;
