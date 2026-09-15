@@ -1564,3 +1564,111 @@ h3 {
   }
 
 }
+
+
+/* ===============================
+   CRONOGRAMA DE PROYECTOS
+================================ */
+
+.schedule-wrap {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+
+  border-radius: var(--radius-lg);
+
+  padding: 10px;
+
+  overflow-x: auto;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 720px;
+
+  border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: middle;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.schedule-table thead th {
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.schedule-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-month td {
+  background: rgba(110, 168, 254, 0.10);
+
+  color: var(--accent);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.schedule-project {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.schedule-table td small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.schedule-owner,
+.schedule-date {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.schedule-progress {
+  min-width: 170px;
+}
+
+.schedule-progress strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.schedule-table .status {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 14px;
+  }
+
+}

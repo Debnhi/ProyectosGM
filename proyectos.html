@@ -71,78 +71,80 @@
     <section class="section container reveal">
       <div class="section-heading">
         <p class="eyebrow">Seguimiento</p>
-        <h2>Avance de proyectos</h2>
+        <h2>Cronograma y avance de proyectos</h2>
       </div>
 
-      <div class="progress-list">
-        <article class="progress-card">
-          <div class="progress-head">
-            <h3>Proyecto 1 · Juntas ETAD</h3>
-            <span class="status done">Finalizado</span>
-          </div>
-          <div class="progress-meta">
-            <p><strong>Encargado por:</strong> Jesús Alberto Hernández González</p>
-            <p><strong>Fecha estimada de término:</strong> Proyecto concluido</p>
-          </div>
-          <div class="progress-value">
-            <span>Avance</span>
-            <strong>100%</strong>
-          </div>
-          <div class="skill-bar"><span style="width: 100%;"></span></div>
-        </article>
-
-        <article class="progress-card">
-          <div class="progress-head">
-            <h3>Proyecto 2 · GM-GMS Presentation</h3>
-            <span class="status done">Finalizado</span>
-          </div>
-          <div class="progress-meta">
-            <p><strong>Encargado por:</strong> David Arisai Guadarrama Beltrán</p>
-            <p><strong>Fecha estimada de término:</strong> Proyecto concluido</p>
-          </div>
-          <div class="progress-value">
-            <span>Avance</span>
-            <strong>100%</strong>
-          </div>
-          <div class="skill-bar"><span style="width: 100%;"></span></div>
-        </article>
-
-        <article class="progress-card">
-          <div class="progress-head">
-            <h3>Proyecto 3 · GPS SLP Mantenimiento</h3>
-            <span class="status test">Prueba</span>
-          </div>
-          <div class="progress-meta">
-            <p><strong>Encargado por:</strong> Erick Moreno</p>
-            <p><strong>Fecha estimada de término:</strong> 22 de septiembre de 2026</p>
-          </div>
-          <div class="progress-value">
-            <span>Avance</span>
-            <strong>80%</strong>
-          </div>
-          <div class="skill-bar"><span style="width: 80%;"></span></div>
-        </article>
-
-        <article class="progress-card">
-          <div class="progress-head">
-            <h3>Proyecto 4 · HPU DAY</h3>
-            <span class="status active">Proceso</span>
-          </div>
-          <div class="progress-meta">
-            <p><strong>Encargado por:</strong> Leticia Ávila Wall</p>
-            <p><strong>Fecha estimada de término:</strong> 5 de octubre de 2026</p>
-          </div>
-          <div class="progress-value">
-            <span>Avance</span>
-            <strong>40%</strong>
-          </div>
-          <div class="skill-bar"><span style="width: 40%;"></span></div>
-        </article>
+      <div class="schedule-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Proyecto</th>
+              <th>Encargado por</th>
+              <th>Fecha de término</th>
+              <th>Estado</th>
+              <th>Avance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="schedule-month">
+              <td colspan="5">Junio 2026</td>
+            </tr>
+            <tr>
+              <td><span class="schedule-project">Proyecto 1 · Juntas ETAD</span><small>Registro digital de juntas semanales</small></td>
+              <td class="schedule-owner">Jesús Alberto Hernández González</td>
+              <td class="schedule-date">Junio 2026 · finalizado</td>
+              <td><span class="status done">Finalizado</span></td>
+              <td class="schedule-progress">
+                <strong>100%</strong>
+                <div class="skill-bar"><span style="width: 100%;"></span></div>
+              </td>
+            </tr>
+            <tr class="schedule-month">
+              <td colspan="5">Agosto 2026</td>
+            </tr>
+            <tr>
+              <td><span class="schedule-project">Proyecto 2 · GM-GMS Presentation</span><small>Agente de presentaciones profesionales en PDF</small></td>
+              <td class="schedule-owner">David Arisai Guadarrama Beltrán</td>
+              <td class="schedule-date">Agosto 2026 · finalizado</td>
+              <td><span class="status done">Terminado</span></td>
+              <td class="schedule-progress">
+                <strong>100%</strong>
+                <div class="skill-bar"><span style="width: 100%;"></span></div>
+              </td>
+            </tr>
+            <tr class="schedule-month">
+              <td colspan="5">Septiembre 2026</td>
+            </tr>
+            <tr>
+              <td><span class="schedule-project">Proyecto 3 · GPS SLP Mantenimiento</span><small>Agente de diagnóstico de fallas de mantenimiento</small></td>
+              <td class="schedule-owner">Erick Moreno</td>
+              <td class="schedule-date">22 de septiembre de 2026 · estimada</td>
+              <td><span class="status test">Prueba</span></td>
+              <td class="schedule-progress">
+                <strong>80%</strong>
+                <div class="skill-bar"><span style="width: 80%;"></span></div>
+              </td>
+            </tr>
+            <tr class="schedule-month">
+              <td colspan="5">Octubre 2026</td>
+            </tr>
+            <tr>
+              <td><span class="schedule-project">Proyecto 4 · HPU DAY</span><small>Agente de cálculo de HPU por planta, GPS y taller</small></td>
+              <td class="schedule-owner">Leticia Ávila Wall</td>
+              <td class="schedule-date">5 de octubre de 2026 · estimada</td>
+              <td><span class="status active">Proceso</span></td>
+              <td class="schedule-progress">
+                <strong>40%</strong>
+                <div class="skill-bar"><span style="width: 40%;"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <p class="progress-note">
-        Los proyectos finalizados se encuentran al 100% de avance; los proyectos en prueba y en desarrollo
-        muestran su porcentaje actual y la fecha estimada de término.
+        El cronograma está ordenado por mes de término: los proyectos de junio y agosto de 2026 están al 100%,
+        mientras que los de septiembre y octubre de 2026 muestran su avance actual y su fecha estimada de cierre.
       </p>
     </section>
   </main>
